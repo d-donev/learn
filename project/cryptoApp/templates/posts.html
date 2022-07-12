@@ -1,0 +1,93 @@
+<head>
+  <!-- CSS only -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"
+  />
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #96d1d9"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}"><b>CryptoLearn</b></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url 'courses' %}"><b>Courses</b></a>
+          {% if user.is_superuser %}
+          <a class="nav-link" href="{% url 'addCourse' %}"><b>Add course</b></a>
+          {% endif %}
+          <a class="nav-link" href="{% url 'comments' %}"><b>Comments</b></a>
+        </div>
+      </div>
+      <span class="text-end me-4 fw-bold text-white">
+        Hello, {{request.user}}
+      </span>
+      <span class="text-end">
+        <a
+          href="{% url 'logout' %}"
+          class="btn btn-danger btn-sm"
+          style="text-decoration: none"
+          >Logout
+        </a></span
+      >
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <h1 class="mt-4 mb-5 text-start fw-bold text-info">Courses</h1>
+    </div>
+    <div class="row mt-4">
+      {% for course in courses %}
+      <div class="col-md-8 offset-2 mb-5 text-center">
+        <div class="card" style="width: 100%">
+          <div class="bg-info rounded-top" style="height: 20px"></div>
+          <div class="card-body">
+            <a
+              href="{% url 'course' %}"
+              class="card-title text-dark fw-bold"
+              style="text-decoration: none; font-size: 20px"
+              >{{course.title}}</a
+            >
+            <p class="card-text">{{course.content}}</p>
+          </div>
+          <div class="card-body">
+            <h6>Posted by: <span class="text-muted">{{course.user}}</span></h6>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <footer
+    class="page-footer font-small fw-bold"
+    style="background-color: #96d1d9"
+  >
+    <div class="footer-copyright text-center py-3">
+      © 2022 Copyright:
+      <a href="{% url 'home' %}" style="text-decoration: none">CryptoLearn</a>
+    </div>
+  </footer>
+</body>

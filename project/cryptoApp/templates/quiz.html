@@ -1,0 +1,343 @@
+<head>
+  <!-- CSS only -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"
+  />
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #96d1d9"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}"><b>CryptoLearn</b></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url 'courses' %}"><b>Courses</b></a>
+          {% if user.is_superuser %}
+          <a class="nav-link" href="{% url 'addCourse' %}"><b>Add course</b></a>
+          {% endif %}
+          <a class="nav-link" href="{% url 'comments' %}"><b>Comments</b></a>
+        </div>
+      </div>
+      <span class="text-end me-4 fw-bold text-white">
+        Hello, {{request.user}}
+      </span>
+      <span class="text-end">
+        <a
+          href="{% url 'logout' %}"
+          class="btn btn-danger btn-sm"
+          style="text-decoration: none"
+          >Logout
+        </a></span
+      >
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <div class="row">
+      <h1 class="mt-5 mb-5 text-center fw-bold text-info">Quiz time</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h5>Question no. 1</h5>
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="a" name="html" value="a" />
+         
+        <label for="a"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          feugiat turpis sapien, vitae imperdiet augue pulvinar rutrum</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="css" name="css" value="b" />
+         
+        <label for="css"
+          >Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Nunc gravida ligula ullamcorper odio blandit,
+          vel viverra mi mattis.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input
+          class="answer"
+          type="radio"
+          id="javascript"
+          name="javascript"
+          value="c"
+        />
+         
+        <label for="javascript"
+          >Vivamus pharetra ac velit eu sodales. Phasellus felis velit, placerat
+          vel neque eu, vulputate luctus risus.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="react" name="react" value="d" />
+         
+        <label for="react"
+          >Mauris eu odio nunc. Ut aliquam lobortis nunc. In hac habitasse
+          platea dictumst. Integer ultricies risus consequat, molestie tortor
+          eu, dictum enim</label
+        ><br />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5>Question no. 2</h5>
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="html" name="html" value="e" />
+         
+        <label for="html"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          feugiat turpis sapien, vitae imperdiet augue pulvinar rutrum</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="f" name="f" value="f" />
+         
+        <label for="f"
+          >Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Nunc gravida ligula ullamcorper odio blandit,
+          vel viverra mi mattis.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input
+          class="answer"
+          type="radio"
+          id="javascript"
+          name="javascript"
+          value="g"
+        />
+         
+        <label for="javascript"
+          >Vivamus pharetra ac velit eu sodales. Phasellus felis velit, placerat
+          vel neque eu, vulputate luctus risus.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="react" name="react" value="h" />
+         
+        <label for="react"
+          >Mauris eu odio nunc. Ut aliquam lobortis nunc. In hac habitasse
+          platea dictumst. Integer ultricies risus consequat, molestie tortor
+          eu, dictum enim</label
+        ><br />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5>Question no. 3</h5>
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="html" name="html" value="i" />
+         
+        <label for="html"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          feugiat turpis sapien, vitae imperdiet augue pulvinar rutrum</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="css" name="css" value="j" />
+         
+        <label for="css"
+          >Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Nunc gravida ligula ullamcorper odio blandit,
+          vel viverra mi mattis.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input
+          class="answer"
+          type="radio"
+          id="javascript"
+          name="javascript"
+          value="k"
+        />
+         
+        <label for="javascript"
+          >Vivamus pharetra ac velit eu sodales. Phasellus felis velit, placerat
+          vel neque eu, vulputate luctus risus.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="l" name="l" value="l" />
+         
+        <label for="l"
+          >Mauris eu odio nunc. Ut aliquam lobortis nunc. In hac habitasse
+          platea dictumst. Integer ultricies risus consequat, molestie tortor
+          eu, dictum enim</label
+        ><br />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5>Question no. 4</h5>
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="html" name="html" value="m" />
+         
+        <label for="html"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          feugiat turpis sapien, vitae imperdiet augue pulvinar rutrum</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="css" name="css" value="n" />
+         
+        <label for="css"
+          >Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Nunc gravida ligula ullamcorper odio blandit,
+          vel viverra mi mattis.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="o" name="o" value="o" />
+         
+        <label for="o"
+          >Vivamus pharetra ac velit eu sodales. Phasellus felis velit, placerat
+          vel neque eu, vulputate luctus risus.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="react" name="react" value="p" />
+         
+        <label for="react"
+          >Mauris eu odio nunc. Ut aliquam lobortis nunc. In hac habitasse
+          platea dictumst. Integer ultricies risus consequat, molestie tortor
+          eu, dictum enim</label
+        ><br />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5>Question no. 5</h5>
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="html" name="html" value="q" />
+         
+        <label for="html"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          feugiat turpis sapien, vitae imperdiet augue pulvinar rutrum</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="css" name="css" value="r" />
+         
+        <label for="css"
+          >Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Nunc gravida ligula ullamcorper odio blandit,
+          vel viverra mi mattis.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="s" name="s" value="s" />
+         
+        <label for="s"
+          >Vivamus pharetra ac velit eu sodales. Phasellus felis velit, placerat
+          vel neque eu, vulputate luctus risus.</label
+        ><br />
+      </div>
+      <div class="col-12 ms-4">
+        <input class="answer" type="radio" id="react" name="react" value="t" />
+         
+        <label for="react"
+          >Mauris eu odio nunc. Ut aliquam lobortis nunc. In hac habitasse
+          platea dictumst. Integer ultricies risus consequat, molestie tortor
+          eu, dictum enim</label
+        ><br />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h4 class="text-center">Result</h4>
+      </div>
+      <div class="col-12">
+        <p id="result" class="text-center">0%</p>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-success rounded mt-4" onclick="calculate()">
+        Check
+      </button>
+    </div>
+  </div>
+  <footer
+    class="page-footer font-small fw-bold"
+    style="background-color: #96d1d9"
+  >
+    <div class="footer-copyright text-center py-3">
+      © 2022 Copyright:
+      <a href="{% url 'home' %}" style="text-decoration: none">CryptoLearn</a>
+    </div>
+  </footer>
+  <script>
+    function calculate() {
+      count = 0;
+      var el = document.getElementById("a");
+      if (el.checked) {
+        count++;
+      }
+      var el1 = document.getElementById("f");
+      if (el1.checked) {
+        count++;
+      }
+      var el2 = document.getElementById("l");
+      if (el2.checked) {
+        count++;
+      }
+      var el3 = document.getElementById("o");
+      if (el3.checked) {
+        count++;
+      }
+      var el4 = document.getElementById("s");
+      if (el4.checked) {
+        count++;
+      }
+
+      var res = document.getElementById("result");
+      out = "0%";
+      if (count == 1) {
+        out = "20%";
+      }
+      if (count == 2) {
+        out = "40%";
+      }
+      if (count == 3) {
+        out = "60%";
+      }
+      if (count == 4) {
+        out = "80%";
+      }
+      if (count == 5) {
+        out = "100%";
+      }
+      res.innerHTML = out;
+      console.log(out);
+    }
+  </script>
+</body>

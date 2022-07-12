@@ -1,0 +1,293 @@
+<head>
+  <!-- CSS only -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"
+  />
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #96d1d9"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}"><b>CryptoLearn</b></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url 'courses' %}"><b>Courses</b></a>
+          {% if user.is_superuser %}
+          <a class="nav-link" href="{% url 'addCourse' %}"><b>Add course</b></a>
+          {% endif %}
+          <a class="nav-link" href="{% url 'comments' %}"><b>Comments</b></a>
+        </div>
+      </div>
+      <span class="text-end me-4 fw-bold text-white">
+        Hello, {{request.user}}
+      </span>
+      <span class="text-end">
+        <a
+          href="{% url 'logout' %}"
+          class="btn btn-danger btn-sm"
+          style="text-decoration: none"
+          >Logout
+        </a></span
+      >
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <div class="row">
+      <h1 class="mt-5 mb-5 text-center fw-bold text-info">Course review</h1>
+    </div>
+    <div class="row mt-4">
+      <h3 class="text-start">Introduction</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 ms-5">
+        <p style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Proin venenatis placerat ante ut aliquet. Suspendisse
+          vulputate hendrerit orci eget gravida. Pellentesque pharetra tempor
+          metus a euismod. Aliquam consectetur justo eu mattis venenatis. Fusce
+          faucibus et metus eget sodales. Vestibulum elementum odio et semper
+          faucibus. Integer diam nibh, facilisis vel dignissim a, facilisis at
+          lorem. Cras at mi mi.
+        </p>
+      </div>
+      <div class="col-8 ms-5">
+        <p style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos.
+        </p>
+      </div>
+      <div class="col-3 ms-5">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/logo.jpg' %}"
+          style="width: 100%; height: 100px"
+        />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <h3 class="text-start">Main part</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-11 ms-5">
+        <p style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Proin venenatis placerat ante ut aliquet. Suspendisse
+          vulputate hendrerit orci eget gravida. Pellentesque pharetra tempor
+          metus a euismod. Aliquam consectetur justo eu mattis venenatis. Fusce
+          faucibus et metus eget sodales. Vestibulum elementum odio et semper
+          faucibus. Integer diam nibh, facilisis vel dignissim a, facilisis at
+          lorem. Cras at mi mi.
+        </p>
+        <p style="text-align: justify">
+          Sed vitae nisi fermentum, tristique turpis vitae, cursus sapien.
+          Vivamus sodales, libero ac semper posuere, massa odio vulputate odio,
+          nec fermentum nunc sapien nec tortor. Cras vitae accumsan eros.
+          Curabitur vehicula sit amet neque eu blandit. Nullam a dapibus tortor.
+          Sed dignissim risus sit amet nunc suscipit, ut eleifend felis gravida.
+          Nullam pharetra, arcu eu scelerisque tincidunt, ligula risus dignissim
+          mauris, eget hendrerit velit arcu vitae diam. Donec scelerisque sem
+          ante, vel ultrices felis rhoncus eget. Donec venenatis purus viverra
+          turpis interdum, vitae sollicitudin sapien ullamcorper.
+        </p>
+        <p style="text-align: justify">
+          Phasellus a euismod ligula. Sed ultricies rhoncus elit, a scelerisque
+          arcu scelerisque nec. Etiam fermentum metus at dui aliquet, fringilla
+          varius quam dignissim. Proin lorem est, pellentesque quis magna vel,
+          venenatis commodo neque. Donec id lorem in dui tincidunt facilisis
+          rhoncus quis eros. Sed gravida tincidunt eros a feugiat. Ut faucibus
+          eros arcu, eu vulputate metus viverra facilisis. Mauris hendrerit
+          dignissim ligula, ut fermentum mauris dictum ac.
+        </p>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-10 offset-1">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/1.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 mt-5 mb-4">
+        <h3 class="text-start ms-5">Example</h3>
+      </div>
+      <div class="col-6 ms-5">
+        <p class="text-justify" style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Proin venenatis placerat ante ut aliquet. Suspendisse
+          vulputate hendrerit orci eget gravida. Pellentesque pharetra tempor
+          metus a euismod. Aliquam consectetur justo eu mattis venenatis. Fusce
+          faucibus et metus eget sodales. Vestibulum elementum odio et semper
+          faucibus. Integer diam nibh, facilisis vel dignissim a, facilisis at
+          lorem. Cras at mi mi.
+        </p>
+      </div>
+      <div class="col-4 offset-1">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/2.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+      <div class="col-12 ms-5">
+        <p class="text-justify" style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet.
+        </p>
+      </div>
+      <div class="col-12 ms-5 mt-3">
+        <p class="text-justify" style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Proin venenatis placerat ante ut aliquet. Suspendisse
+          vulputate hendrerit orci eget gravida. Pellentesque pharetra tempor
+          metus a euismod. Aliquam consectetur justo eu mattis venenatis. Fusce
+          faucibus et metus eget sodales. Vestibulum elementum odio et semper
+          faucibus. Integer diam nibh, facilisis vel dignissim a, facilisis at
+          lorem. Cras at mi mi.
+        </p>
+      </div>
+      <div class="col-12 ms-5 mt-4">
+        <h2>More practical examples</h2>
+      </div>
+      <div class="col-6 mt-3">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/1.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+      <div class="col-6 mt-3">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/2.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+      <div class="col-6 mt-3">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/3.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+      <div class="col-6 mt-3">
+        {% load static %}
+        <img
+          src="{% static 'cryptoApp/4.png' %}"
+          style="width: 100%; height: 250px"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <h3 class="text-start">Conclusion</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-11 ms-5">
+        <p style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos.
+        </p>
+        <p style="text-align: justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          rhoncus orci sed massa dapibus ultrices. Aenean vel dignissim erat, a
+          commodo dolor. Aliquam placerat consectetur aliquet. Fusce in libero
+          vel massa imperdiet vestibulum vel id quam. Ut congue at tortor id
+          ultrices. Curabitur eget nisi diam. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos.
+        </p>
+      </div>
+      <div class="col-1"></div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <h6 class="ms-4 fw-bold mb-4">
+            If you want to check what you have learnt click the button bellow:
+          </h6>
+        </div>
+        <div class="col-3 offset-5">
+          <a
+            href="{% url 'quiz' %}"
+            class="btn btn-outline-info text-center btn-rounded border-5 rounded-pill ps-5 pe-5 text-dark"
+            ><b>Take quiz</b></a
+          >
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </div>
+  <footer
+    class="page-footer font-small fw-bold"
+    style="background-color: #96d1d9"
+  >
+    <div class="footer-copyright text-center py-3">
+      © 2022 Copyright:
+      <a href="{% url 'home' %}" style="text-decoration: none">CryptoLearn</a>
+    </div>
+  </footer>
+</body>
